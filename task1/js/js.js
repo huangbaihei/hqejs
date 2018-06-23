@@ -1,4 +1,3 @@
-
 /*首先取出这九个格子*/
 var box = document.getElementsByClassName("box");
 
@@ -13,6 +12,9 @@ function color() {
 
 /*开始闪*/
 function change() {//随机抽取三个格子变色
+    for (var i = 0; i < box.length; i++) {//执行之前先遍历9个格子重置颜色
+        box[i].style.background = "#fea500";
+    }
     var a = [];//定义一个放格子下标的空数组
     for (var i = 0; i < 3; i++) {//遍历空数组并在空数组存放格子下标0~8中任意的三个
         a[i] = Math.floor(Math.random() * 8);
@@ -23,15 +25,16 @@ function change() {//随机抽取三个格子变色
         box[a[2]].style.background = color();
     }
 }
+
 var z;//定义一个名叫z的全局变量
 function start() {//触发变色
-     z=setInterval("change()",1000);//将周期调用函数放入z变量并直接触发
+    z = setInterval("change()", 1000);//将周期调用函数放入z变量并直接触发
 }
 
 /*结束闪*/
 function stop() {//停止变色并重置
     clearInterval(z);//停止周期调用函数
-    for (var i=0;i<box.length;i++){//遍历9个格子重置颜色
-        box[i].style.background="#fea500";
+    for (var i = 0; i < box.length; i++) {//遍历9个格子重置颜色
+        box[i].style.background = "#fea500";
     }
 }
