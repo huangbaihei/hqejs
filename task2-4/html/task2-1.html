@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=divice-with,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>task2-1</title>
+    <link rel="stylesheet" href="../css/style-1.css">
+</head>
+<body>
+<header>
+    <a href="###"><img src="../images/fanhui.png" alt=""></a>
+    <h1>参数设置</h1>
+    <a href="###"><img src="../images/bangzhu.png" alt=""></a>
+</header>
+<!--玩家配比开始-->
+<div class="player-separate">
+    <div class="left-title">玩<br>家<br>配<br>比</div>
+    <div class="right-message">
+        <div class="identity">
+            <div class="killer">杀&nbsp;手&nbsp;<span id="killer-num">1</span>&nbsp;人</div>
+            <div class="civilians">平&nbsp;民&nbsp;<span id="civilians-num">3</span>&nbsp;人</div>
+        </div>
+        <div class="setting">
+            <button onclick="separate()">点击设置<img src="../images/pencil.png"></button>
+        </div>
+    </div>
+</div>
+<!--玩家配比结束-->
+<!--词组开始-->
+<form class="word-group">
+    <input type="text" placeholder="水民词组">
+    <input type="text" placeholder="幽灵词组">
+</form>
+<!--词组结束-->
+<!--玩家人数开始-->
+<div class="player-num">
+    <div class="player-num-top">
+        玩家人数<input type="text" value="4" id="num">人
+    </div>
+    <div class="slider">
+        <button id="subtract"><img src="../images/jianhao.png" alt=""></button>
+        <input type="range" min="4" max="18" step="1" value="4" id="range">
+        <button id="add"><img src="../images/jiahao.png" alt=""></button>
+    </div>
+</div>
+<!--玩家人数结束-->
+<footer>
+    <button>去发牌</button>
+</footer>
+<script src="../js/js-1.js"></script>
+</body>
+</html>

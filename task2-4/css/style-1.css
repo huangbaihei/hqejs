@@ -1,0 +1,196 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  box-sizing: border-box; }
+
+html,
+body {
+  font-size: 62.5%;
+  background: #f0f0f0; }
+
+a,
+a:hover {
+  text-decoration: none; }
+
+button {
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  background: #fff; }
+
+input {
+  outline: 0;
+  border: 0; }
+
+header {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #29bde0;
+  padding: 0 2.5vw; }
+  header a:first-child img {
+    width: 11px;
+    height: 22px;
+    margin-top: 3px; }
+  header a:last-child img {
+    width: 27px;
+    height: 27px; }
+  header h1 {
+    color: #fff;
+    font-size: 1.913rem; }
+
+/*玩家配比开始*/
+.player-separate {
+  background: #fff;
+  width: 95vw;
+  height: 255px;
+  margin: 10px auto 5px auto;
+  display: flex; }
+  .player-separate .left-title {
+    width: 19vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.025rem;
+    color: #444444;
+    border-right: 2px solid #e9e9e9; }
+  .player-separate .right-message {
+    background: #fbfbfb;
+    display: flex;
+    flex-direction: column;
+    width: 76vw; }
+    .player-separate .right-message .identity {
+      height: 220px;
+      border-bottom: 2px solid #e9e9e9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.463rem;
+      color: #a1a1a1; }
+      .player-separate .right-message .identity > * {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+      .player-separate .right-message .identity .killer:before {
+        content: " ";
+        width: 5px;
+        height: 5px;
+        background: #fab344;
+        margin-right: 12px; }
+      .player-separate .right-message .identity .civilians:before {
+        content: " ";
+        width: 5px;
+        height: 5px;
+        background: #29bde0;
+        margin-right: 12px; }
+    .player-separate .right-message .setting {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 35px; }
+      .player-separate .right-message .setting button {
+        height: 35px;
+        font-size: 1.575rem;
+        color: #29bde0;
+        background: #fbfbfb; }
+        .player-separate .right-message .setting button img {
+          width: 8px;
+          height: 8px;
+          margin-left: 10px; }
+
+/*玩家配比结束*/
+/*词组开始*/
+.word-group {
+  background: #fff;
+  width: 95vw;
+  height: 110px;
+  margin: 0 auto 5px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; }
+  .word-group input {
+    width: 85vw;
+    height: 35px;
+    margin: 10px;
+    border-bottom: 1px solid #f0f0f0; }
+    .word-group input::placeholder {
+      font-size: 1.575rem;
+      color: #d7d7d7; }
+  .word-group input:last-child {
+    margin-top: 0; }
+
+/*词组结束*/
+/*玩家人数开始*/
+.player-num {
+  width: 95vw;
+  height: 107px;
+  background: #fff;
+  font-size: 1.575rem;
+  color: #444444;
+  margin: 0 auto 10px auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+  .player-num .player-num-top {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    width: 85vw; }
+    .player-num .player-num-top input {
+      margin-left: 15px;
+      margin-right: 10px;
+      width: 33px;
+      height: 23px;
+      background: #f4f5f5;
+      text-align: center;
+      font-size: 1.913rem;
+      color: #fab344; }
+  .player-num .slider {
+    width: 80vw;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .player-num .slider input {
+      width: 63vw;
+      -webkit-appearance: none;
+      height: 3px;
+      background: #fcc671;
+      cursor: pointer; }
+      @media screen and (min-width: 768px) {
+        .player-num .slider input {
+          width: 73vw; } }
+      .player-num .slider input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 35px;
+        height: 20px;
+        background: url("../images/huakuai.png");
+        background-size: 35px 20px; }
+    .player-num .slider button {
+      display: flex;
+      align-items: center; }
+      .player-num .slider button img {
+        width: 18px;
+        height: 18px; }
+
+/*玩家人数结束*/
+footer {
+  display: flex;
+  justify-content: center; }
+  footer button {
+    width: 95vw;
+    height: 50px;
+    background: #fab344;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 2.25rem;
+    margin-bottom: 13px; }
+
+/*# sourceMappingURL=style-1.css.map */
