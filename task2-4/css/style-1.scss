@@ -41,16 +41,18 @@ header {
   background: #29bde0;
   padding: 0 2.5vw;
   a:first-child {
+    padding-right: 16px;
     img {
       width: 11px;
       height: 22px;
-      margin-top: 3px;
+      display: block;
     }
   }
   a:last-child {
     img {
       width: 27px;
       height: 27px;
+      display: block;
     }
   }
   h1 {

@@ -1,0 +1,81 @@
+@charset "UTF-8";
+@import "global";
+
+body {
+  background: #29bde0;
+}
+
+header {
+  height: 40px;
+  @include middle;
+  @include jc-sb;
+  background: #29bde0;
+  padding: 0 2.5vw;
+  @include b-b(#50c9e6);
+  a:first-child {
+    padding-right: 8px;
+
+    img {
+      display: block;
+      @include box(12px, 25px);
+    }
+  }
+  a:last-child {
+    img {
+      display: block;
+      @include box(20px, 20px);
+    }
+  }
+  h1 {
+    @include text(1.913rem, #fff);
+  }
+}
+
+.main {
+  padding: 45px 13vw 70px 13vw;
+  .tag {
+    position: relative;
+    border: 3px solid #fff;
+    height: 370px;
+    background: #ffedc5;
+    @include middle-center;
+    .circle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @include box(40px, 40px);
+      background: #fff;
+      border-radius: 50%;
+      border: 2px solid #ffedc5;
+      @include middle-center;
+      @include text(2.25rem, #f56b81);
+    }
+    .img-wrap {
+      .emperor {
+        @include box(172px, 172px);
+
+      }
+      .girl {
+        @include box(125px, 125px);
+        display: none;
+      }
+      .role-word {
+        margin-top: 20px;
+        text-align: center;
+        @include text(2.25rem, #29bde0);
+        display: none;
+      }
+    }
+
+  }
+}
+.btn{
+  width: 76.7vw;
+  height: 50px;
+  margin: 0 auto 30px auto;
+  @include middle-center;
+  @include text(2.7rem,#fff);
+  background: #fbb435;
+  display: block;
+}
