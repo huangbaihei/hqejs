@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +7,8 @@
 
 html,
 body {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  background: #f0f0f0; }
 
 a,
 a:hover {
@@ -22,80 +24,176 @@ input {
   outline: 0;
   border: 0; }
 
-body {
-  background: #29bde0; }
-
 header {
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: #29bde0;
-  padding: 0 2.5vw;
-  border-bottom: 1px solid #50c9e6; }
+  padding: 0 2.5vw; }
   header a:first-child {
-    padding-right: 8px; }
+    padding-right: 16px; }
     header a:first-child img {
-      display: block;
-      width: 12px;
-      height: 25px; }
+      width: 11px;
+      height: 22px;
+      display: block; }
   header a:last-child img {
-    display: block;
-    width: 20px;
-    height: 20px; }
+    width: 27px;
+    height: 27px;
+    display: block; }
   header h1 {
-    font-size: 1.913rem;
-    color: #fff; }
+    color: #fff;
+    font-size: 1.913rem; }
 
-.main {
-  padding: 45px 13vw 70px 13vw; }
-  .main .tag {
-    position: relative;
-    border: 3px solid #fff;
-    height: 370px;
-    background: #ffedc5;
+/*玩家配比开始*/
+.player-separate {
+  background: #fff;
+  width: 95vw;
+  height: 255px;
+  margin: 10px auto 5px auto;
+  display: flex; }
+  .player-separate .left-title {
+    width: 19vw;
     display: flex;
     align-items: center;
-    justify-content: center; }
-    .main .tag .circle {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 40px;
-      height: 40px;
-      background: #fff;
-      border-radius: 50%;
-      border: 2px solid #ffedc5;
+    justify-content: center;
+    font-size: 2.025rem;
+    color: #444444;
+    border-right: 2px solid #e9e9e9; }
+  .player-separate .right-message {
+    background: #fbfbfb;
+    display: flex;
+    flex-direction: column;
+    width: 76vw; }
+    .player-separate .right-message .identity {
+      height: 220px;
+      border-bottom: 2px solid #e9e9e9;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.25rem;
-      color: #f56b81; }
-    .main .tag .img-wrap .emperor {
-      width: 172px;
-      height: 172px; }
-    .main .tag .img-wrap .girl {
-      width: 125px;
-      height: 125px;
-      display: none; }
-    .main .tag .img-wrap .role-word {
-      margin-top: 20px;
-      text-align: center;
-      font-size: 2.25rem;
-      color: #29bde0;
-      display: none; }
+      font-size: 1.463rem;
+      color: #a1a1a1; }
+      .player-separate .right-message .identity > * {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+      .player-separate .right-message .identity .killer:before {
+        content: " ";
+        width: 5px;
+        height: 5px;
+        background: #fab344;
+        margin-right: 12px; }
+      .player-separate .right-message .identity .civilians:before {
+        content: " ";
+        width: 5px;
+        height: 5px;
+        background: #29bde0;
+        margin-right: 12px; }
+    .player-separate .right-message .setting {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 35px; }
+      .player-separate .right-message .setting button {
+        height: 35px;
+        font-size: 1.575rem;
+        color: #29bde0;
+        background: #fbfbfb; }
+        .player-separate .right-message .setting button img {
+          width: 8px;
+          height: 8px;
+          margin-left: 10px; }
 
-.btn {
-  width: 76.7vw;
-  height: 50px;
-  margin: 0 auto 30px auto;
+/*玩家配比结束*/
+/*词组开始*/
+.word-group {
+  background: #fff;
+  width: 95vw;
+  height: 110px;
+  margin: 0 auto 5px auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.7rem;
-  color: #fff;
-  background: #fbb435;
-  display: block; }
+  flex-direction: column; }
+  .word-group input {
+    width: 85vw;
+    height: 35px;
+    margin: 10px;
+    border-bottom: 1px solid #f0f0f0; }
+    .word-group input::placeholder {
+      font-size: 1.575rem;
+      color: #d7d7d7; }
+  .word-group input:last-child {
+    margin-top: 0; }
+
+/*词组结束*/
+/*玩家人数开始*/
+.player-num {
+  width: 95vw;
+  height: 107px;
+  background: #fff;
+  font-size: 1.575rem;
+  color: #444444;
+  margin: 0 auto 10px auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+  .player-num .player-num-top {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    width: 85vw; }
+    .player-num .player-num-top input {
+      margin-left: 15px;
+      margin-right: 10px;
+      width: 33px;
+      height: 23px;
+      background: #f4f5f5;
+      text-align: center;
+      font-size: 1.913rem;
+      color: #fab344; }
+  .player-num .slider {
+    width: 80vw;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .player-num .slider input {
+      width: 63vw;
+      -webkit-appearance: none;
+      height: 3px;
+      background: #fcc671;
+      cursor: pointer; }
+      @media screen and (min-width: 768px) {
+        .player-num .slider input {
+          width: 73vw; } }
+      .player-num .slider input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 35px;
+        height: 20px;
+        background: url("../images/huakuai.png");
+        background-size: 35px 20px; }
+    .player-num .slider button {
+      display: flex;
+      align-items: center; }
+      .player-num .slider button img {
+        width: 18px;
+        height: 18px; }
+
+/*玩家人数结束*/
+footer {
+  display: flex;
+  justify-content: center; }
+  footer button {
+    width: 95vw;
+    height: 50px;
+    background: #fab344;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 2.25rem;
+    margin-bottom: 13px; }
 
 /*# sourceMappingURL=style-2.css.map */

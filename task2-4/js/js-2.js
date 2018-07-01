@@ -1,48 +1,106 @@
-//jq文档就绪函数
-$(document).ready(function () {
+var num = document.getElementById("num");
+var range = document.getElementById("range");
+var subBtn = document.getElementById("subtract");
+var addBtn = document.getElementById("add");
+var killer = document.getElementById("killer-num");
+var civilians = document.getElementById("civilians-num");
+//输入人数后，滑块跟着变化
+num.onblur = numChange;
 
-    //将本地存储里的字符串取出来变回对象数组
-    var players = JSON.parse(sessionStorage.getItem("players"));
+function numChange() {
+    if (num.value >= 4 && num.value <= 18) {
+        range.value = num.value;
+    }
+    else {
+        alert("请输入4~18之间的整数");
+        num.value = 4;
+        range.value = 4;
+    }
+}
 
-    //给序号累加变量和状态判断变量设初始值
-    var label = 1, status = 0;
+//添加键盘事件
+document.onkeydown = function (event) {
+    var e = event || window.event || arguments.callee.caller.arguments[0];
+    if (e && e.keyCode == 13) {
+        numChange();
+    }
+};
+//滑块变化后人数跟着变化
+range.onchange = function () {
+    num.value = range.value;
+};
+//点击减号实现人数自减
+subBtn.onclick = function () {
+    num.value--;
+    range.value--;
+    if (num.value < 4) {
+        alert("人数最少为4");
+        num.value = 4;
+        range.value = 4;
+    }
+};
+//点击加号实现人数自加
+addBtn.onclick = function () {
+    num.value++;
+    range.value++;
+    if (num.value > 18) {
+        alert("人数最多为18");
+        num.value = 18;
+        range.value = 18;
+    }
+};
 
-    //开始给按钮添加点击事件触发函数
-    $(".btn").click (function () {
-        //点击后判断当前所处状态
-        switch (status){
-            case 0://处于皇上翻牌状态（点击去到女孩出现状态）
-                $(".emperor").hide();
-                $(".girl").show();
-                $(".role-word").show();
-                status=1;//实现点击后换状态
-                label++;//在此状态下点击序号加1
-                $(".role").text(players[label-2]);
-                if (label < players.length+1) {
-                    $(".btn").text("隐藏并传递给"+label+"号");
-                }
-                else {
-                    $(".btn").text("法官查看");
-                    status=2;
-                }
-                break;
-            case 1://处于女孩出现状态（点击去到皇上翻牌状态）
-                $(".emperor").show();
-                $(".girl").hide();
-                $(".role-word").hide();
-                status=0;//实现点击后换状态
-                if (label < players.length+1) {
-                    $(".circle").text(label);//在此状态下点击改变圆圈序号
-                    $(".btn").text("查看"+label+"号身份");
-                }
-                break;
-            case 2://处于准备法官查看状态（点击去到法官查看页面）
-                confirm("请把手机交给法官");
+//点击设置实现根据总人数分配杀手和平民
+function separate() {
+    if (num.value >= 4 && num.value <= 18) {
+        if (num.value == 15) {
+            killer.value = 4;
         }
-    });
-    $(".go-back").click(function () {
-        if (confirm("确定要回到参数设置页面吗？")) {
-            location.href="task2-1.html";
+        else if (num.value == 18) {
+            killer.value = 5;
         }
-    })
-});
+        else {
+            killer.value = Math.floor(num.value / 3);
+        }
+        civilians.value = num.value - killer.value;
+        killer.innerHTML = killer.value;
+        civilians.innerHTML = civilians.value;
+        //将所有杀手和平民放到一个空数组中，用洗牌算法打乱，然后将数组存储到浏览器
+        var players = [];
+        for (var i = 0; i < killer.value; i++) {
+            players.push("杀手");
+        }
+
+        for (var i = 0; i < civilians.value; i++) {
+            players.push("平民");
+        }
+        (function () {
+            var i, j = players.length, k;
+            while (j) {
+                i = Math.floor(Math.random() * j--);
+                k = players[i];
+                players[i] = players[j];
+                players[j] = k;
+            }
+        })();
+        //以字符串形式存到本地存储
+        sessionStorage.setItem("players",JSON.stringify(players));
+    }
+}
+
+//给去发牌添加事件
+var btnBottom = document.getElementById("btnBottom");
+btnBottom.onclick = function () {
+    if (num.value == parseInt(killer.innerHTML) + parseInt(civilians.innerHTML)) {
+        location.href = "task2-3.html";
+    }
+    else {
+        alert("发牌前要先设置好配比哟")
+    }
+};
+//给返回添加事件
+(document.getElementById("go-back")).onclick=function () {
+    if (confirm("确定要返回首页吗？")){
+        location.href="task2-1.html";
+    }
+};

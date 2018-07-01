@@ -1,0 +1,78 @@
+@charset "UTF-8";
+@import "global";
+
+body {
+  background: #29bde0;
+}
+
+header {
+  height: 40px;
+  @include middle;
+  @include jc-sb;
+  background: #29bde0;
+  padding: 0 2.5vw;
+  @include b-b(#50c9e6);
+  @include p-t;
+  width: 100%;
+  a:first-child {
+    padding-right: 8px;
+
+    img {
+      display: block;
+      @include box(12px, 25px);
+    }
+  }
+  a:last-child {
+    img {
+      display: block;
+      @include box(20px, 20px);
+    }
+  }
+  h1 {
+    @include text(1.913rem, #fff);
+  }
+}
+
+.main {
+  margin-top: 40px;
+  margin-bottom: 110px;
+  padding-top: 4.72vw;
+  padding-bottom: 4.72vw;
+  overflow: hidden;
+  .grid {
+    @include box(33.3333%, 30.55vw);
+    @include middle-center;
+    float: left;
+    .tag {
+      @include box(20.8vw, 20.8vw);
+      background: #fff;
+      border: 0.83vw solid #fff;
+      h1 {
+        height: 14.44vw;
+        background: #f5c97b;
+        color: #333;
+        font-size: 4.44vw;
+        @include middle-center;
+      }
+      p {
+        height: 4.7vw;
+        background: #83b09a;
+        color: #fff;
+        font-size: 3.61vw;
+        @include middle-center;
+      }
+    }
+  }
+}
+
+footer {
+  @include box(100%, 110px);
+  background: #29bde0;
+  @include p-b;
+  @include middle-center;
+  .btn {
+    @include box(77vw, 50px);
+    background: #fbb435;
+    @include text(2.25rem, #fff);
+  }
+}

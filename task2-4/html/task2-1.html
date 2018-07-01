@@ -3,51 +3,85 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=divice-with,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="viewport" content="width=divice-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <title>task2-1</title>
     <link rel="stylesheet" href="../css/style-1.css">
 </head>
 <body>
+<input type="checkbox" id="sidebar">
+<!--汉堡侧栏开始-->
+<div class="sidebar-menu">
+    <ul>
+        <li>
+            <span>
+                <img src="../images/laba.png" alt="">
+                公告
+            </span>
+            <img src="../images/lanjiantou.png" alt="">
+        </li>
+        <li>
+            <span>
+                <img src="../images/chilun.png" alt="">
+                设置
+            </span>
+            <img src="../images/lanjiantou.png" alt="">
+        </li>
+        <li>
+            <span>
+                <img src="../images/wenhao.png" alt="">
+                帮助
+            </span>
+            <img src="../images/lanjiantou.png" alt="">
+        </li>
+        <li>
+            <span>
+                <img src="../images/xiaoguanji.png" alt="">
+                关于
+            </span>
+            <img src="../images/lanjiantou.png" alt="">
+        </li>
+    </ul>
+</div>
+<!--汉堡侧栏结束-->
+
+<!--头部开始-->
 <header>
-    <a href="###"><img src="../images/fanhui.png" alt=""></a>
-    <h1>参数设置</h1>
-    <a href="###"><img src="../images/bangzhu.png" alt=""></a>
+    <label for="sidebar">
+        <img src="../images/celan.png" alt="">
+        <img src="../images/guanbi.png" alt="">
+    </label>
 </header>
-<!--玩家配比开始-->
-<div class="player-separate">
-    <div class="left-title">玩<br>家<br>配<br>比</div>
-    <div class="right-message">
-        <div class="identity">
-            <div class="killer">杀&nbsp;手&nbsp;<span id="killer-num">0</span>&nbsp;人</div>
-            <div class="civilians">平&nbsp;民&nbsp;<span id="civilians-num">0</span>&nbsp;人</div>
-        </div>
-        <div class="setting">
-            <button onclick="separate()">点击设置<img src="../images/pencil.png"></button>
-        </div>
+<!--头部结束-->
+<!--主体开始-->
+<a href="###" class="last-game">
+    <span>上次游戏：捉鬼猜词版</span>
+    <img src="../images/baijiantou.png" alt="">
+</a>
+<div class="nav-game">
+    <h1>捉鬼游戏</h1>
+    <div class="row">
+        <a href="###" class="nav-item" id="simplify">简化版</a>
     </div>
+    <p>有1133个用户正在玩此款游戏</p>
+    <div class="row row-middle">
+        <a href="###" class="nav-item">猜词版</a>
+        <a href="###" class="next"><img src="../images/huangjiantou.png" alt=""></a>
+
+    </div>
+    <p>有1133个用户正在玩此款游戏</p>
+    <div class="row">
+        <a href="###" class="nav-item">白痴版</a>
+    </div>
+    <p>有1133个用户正在玩此款游戏</p>
+    <div class="nav-circle">
+        <a href="###" class="active"></a>
+        <a href="###"></a>
+        <a href="###"></a>
+        <a href="###"></a>
+    </div>
+
 </div>
-<!--玩家配比结束-->
-<!--词组开始-->
-<form class="word-group">
-    <input type="text" placeholder="水民词组">
-    <input type="text" placeholder="幽灵词组">
-</form>
-<!--词组结束-->
-<!--玩家人数开始-->
-<div class="player-num">
-    <div class="player-num-top">
-        玩家人数<input type="text" value="4" id="num">人
-    </div>
-    <div class="slider">
-        <button id="subtract"><img src="../images/jianhao.png" alt=""></button>
-        <input type="range" min="4" max="18" step="1" value="4" id="range">
-        <button id="add"><img src="../images/jiahao.png" alt=""></button>
-    </div>
-</div>
-<!--玩家人数结束-->
-<footer>
-    <button id="btnBottom">去发牌</button>
-</footer>
+<!--主体结束-->
 <script src="../js/js-1.js"></script>
 </body>
 </html>

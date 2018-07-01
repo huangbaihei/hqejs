@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  box-sizing: border-box; }
+
+html,
+body {
+  font-size: 62.5%; }
+
+a,
+a:hover {
+  text-decoration: none; }
+
+button {
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  background: #fff; }
+
+input {
+  outline: 0;
+  border: 0; }
+
+body {
+  background: #29bde0; }
+
+header {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #29bde0;
+  padding: 0 2.5vw;
+  border-bottom: 1px solid #50c9e6;
+  position: fixed;
+  top: 0;
+  z-index: 999999;
+  width: 100%; }
+  header a:first-child {
+    padding-right: 8px; }
+    header a:first-child img {
+      display: block;
+      width: 12px;
+      height: 25px; }
+  header a:last-child img {
+    display: block;
+    width: 20px;
+    height: 20px; }
+  header h1 {
+    font-size: 1.913rem;
+    color: #fff; }
+
+.main {
+  margin-top: 40px;
+  margin-bottom: 110px;
+  padding-top: 4.72vw;
+  padding-bottom: 4.72vw;
+  overflow: hidden; }
+  .main .grid {
+    width: 33.3333%;
+    height: 30.55vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left; }
+    .main .grid .tag {
+      width: 20.8vw;
+      height: 20.8vw;
+      background: #fff;
+      border: 0.83vw solid #fff; }
+      .main .grid .tag h1 {
+        height: 14.44vw;
+        background: #f5c97b;
+        color: #333;
+        font-size: 4.44vw;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+      .main .grid .tag p {
+        height: 4.7vw;
+        background: #83b09a;
+        color: #fff;
+        font-size: 3.61vw;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+
+footer {
+  width: 100%;
+  height: 110px;
+  background: #29bde0;
+  position: fixed;
+  bottom: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  footer .btn {
+    width: 77vw;
+    height: 50px;
+    background: #fbb435;
+    font-size: 2.25rem;
+    color: #fff; }
+
+/*# sourceMappingURL=style-4.css.map */

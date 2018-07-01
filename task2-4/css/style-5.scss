@@ -1,0 +1,149 @@
+@charset "UTF-8";
+@import "global";
+
+body {
+  background: #f0f0f0;
+}
+
+header {
+  height: 40px;
+  @include middle;
+  @include jc-sb;
+  background: #29bde0;
+  padding: 0 2.5vw;
+  @include b-b(#50c9e6);
+  @include p-t;
+  width: 100%;
+  a:first-child {
+    padding-right: 8px;
+
+    img {
+      display: block;
+      @include box(12px, 25px);
+    }
+  }
+  a:last-child {
+    img {
+      display: block;
+      @include box(20px, 20px);
+    }
+  }
+  h1 {
+    @include text(1.913rem, #fff);
+  }
+}
+
+.main {
+  margin-top: 40px;
+  margin-bottom: 72px;
+  padding: 20px 1.5vw;
+  .item {
+    border: 1px solid #c9c9c9;
+    background: #fff;
+    .day {
+      position: relative;
+      @include box(100%, 50px);
+      border-bottom: 1px solid #c9c9c9;
+      @include text(1.688rem, #29bde0);
+      @include middle-center;
+      &:after {
+        content: "";
+        @include box(17px, 9px);
+        background: url("../images/xiajiantou.png");
+        background-size: 17px 9px;
+        position: absolute;
+        right: 2.7vw;
+        top: 20px;
+      }
+    }
+    .wrap {
+      padding: 27px 32px 50px 33px;
+      @include middle-center;
+      flex-direction: column;
+      margin-left: 5.7vw;
+      border-left: 2px solid #cacaca;
+      & > * {
+        width: 100%;
+      }
+      ul {
+        list-style: none;
+        li {
+          cursor: pointer;
+          position: relative;
+          height: 43px;
+          background: #24a7c6;
+          margin-bottom: 10px;
+          @include text(1.688rem, #fff);
+          @include middle-center;
+          &:before {
+            content: "";
+            border-right: 10px solid #24a7c6;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            position: absolute;
+            left: -10px;
+          }
+        }
+        .kill-message {
+          background: #fff;
+          color: #333;
+          margin-bottom: 0;
+          &:before {
+            border: 0;
+          }
+          display: none;
+        }
+      }
+      .night {
+        margin-bottom: 37px;
+        position: relative;
+        &:before {
+          content: "";
+          @include box(33px, 33px);
+          @include border(#cccccc);
+          border-radius: 50%;
+
+          background: url("../images/yueliang.png") no-repeat 50% 50%;
+          background-size: 16px 21px;
+          background-color: #fff;
+          position: absolute;
+          left: -51.5px;
+          top: 4px;
+          z-index: 1;
+        }
+      }
+      .daytime {
+        position: relative;
+        &:before {
+          content: "";
+          @include box(33px, 33px);
+          @include border(#cccccc);
+          border-radius: 50%;
+
+          background: url("../images/taiyang.png") no-repeat 50% 50%;
+          background-size: 21px 21px;
+          background-color: #fff;
+          position: absolute;
+          left: -51.5px;
+          top: 4px;
+          z-index: 1;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  @include box(100%, 72px);
+  background: rgba(41, 189, 224, 0.7);
+  @include p-b;
+  @include middle;
+  @include jc-sa;
+  button {
+    height: 50px;
+    width: 42.5vw;
+    background: #fbb435;
+    @include text(2.25rem, #fff);
+    border-radius: 4px;
+  }
+}
