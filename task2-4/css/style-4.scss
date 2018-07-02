@@ -44,11 +44,12 @@ header {
     @include middle-center;
     float: left;
     .tag {
-      @include box(20.8vw, 20.8vw);
+      width: 20.8vw;
       background: #fff;
-      border: 0.83vw solid #fff;
       h1 {
         height: 14.44vw;
+        margin: 0.83vw;
+        margin-bottom: 0;
         background: #f5c97b;
         color: #333;
         font-size: 4.44vw;
@@ -56,6 +57,8 @@ header {
       }
       p {
         height: 4.7vw;
+        margin: 0.83vw;
+        margin-top: 0;
         background: #83b09a;
         color: #fff;
         font-size: 3.61vw;
