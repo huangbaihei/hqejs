@@ -163,15 +163,15 @@ $(document).ready(function () {
                 "        <div class=\"wrap\">\n" +
                 "            <div class=\"night\">\n" +
                 "                <ul>\n" +
-                "                    <li class=\"killer-kill\">杀手杀人</li>\n" +
+                "                    <li class=\"killer-kill killer-kill-dead\">杀手杀人</li>\n" +
                 "                    <li class=\"kill-message killer-kill-message\">3号被杀手杀死，真实身份是平民</li>\n" +
                 "                </ul>\n" +
                 "            </div>\n" +
                 "            <div class=\"daytime\">\n" +
                 "                <ul>\n" +
-                "                    <li class=\"ghost-speak\">亡灵发表遗言</li>\n" +
-                "                    <li class=\"player-speak\">玩家依次发言</li>\n" +
-                "                    <li class=\"vote-kill\">全民投票</li>\n" +
+                "                    <li class=\"ghost-speak ghost-speak-dead\">亡灵发表遗言</li>\n" +
+                "                    <li class=\"player-speak player-speak-dead\">玩家依次发言</li>\n" +
+                "                    <li class=\"vote-kill vote-kill-dead\">全民投票</li>\n" +
                 "                    <li class=\"kill-message vote-kill-message\">5号被投票投死，真实身份是杀手</li>\n" +
                 "                </ul>\n" +
                 "            </div>\n" +
@@ -188,16 +188,16 @@ $(document).ready(function () {
             //将静止台本的每个步骤都设置高亮
             //第一步高亮
             $(".killer-kill").eq(i).css("background", "#92b7a5");
-            $("head").append("<style>.killer-kill:before{border-right-color: #92b7a5 !important}</style>");
+            $("head").append("<style>.killer-kill-dead:before{border-right-color: #92b7a5 !important}</style>");
             //第二步高亮
             $(".ghost-speak").eq(i).css("background", "#92b7a5");
-            $("head").append("<style>.ghost-speak:before{border-right-color: #92b7a5 !important}</style>");
+            $("head").append("<style>.ghost-speak-dead:before{border-right-color: #92b7a5 !important}</style>");
             //第三步高亮
             $(".player-speak").eq(i).css("background", "#92b7a5");
-            $("head").append("<style>.player-speak:before{border-right-color: #92b7a5 !important}</style>");
+            $("head").append("<style>.player-speak-dead:before{border-right-color: #92b7a5 !important}</style>");
             //第四步高亮
             $(".vote-kill").eq(i).css("background","#92b7a5");
-            $("head").append("<style>.vote-kill:before{border-right-color: #92b7a5 !important}</style>");
+            $("head").append("<style>.vote-kill-dead:before{border-right-color: #92b7a5 !important}</style>");
         }
     }
     //实现点击展示，再次点击隐藏
