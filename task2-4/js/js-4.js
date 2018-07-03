@@ -24,5 +24,22 @@ $(document).ready(function () {
     });
     $(".btn").click(function () {
         location.href="task2-5.html";
-    })
+    });
+    //给下一个页面的状态机设置step初始值到本地存储，初始步骤为杀手杀人killerStep
+    sessionStorage.setItem("step","killerStep");
+    //开始定义变量并存储到本地存储
+    var playersRole = [];//定义准备加三个状态的所有角色的数组
+    for (var i = 0; i < players.length; i++) {
+        playersRole[i] = {
+            role: players[i],//身份
+            num: i + 1,//序号
+            state: "live"//生死状态
+        }
+    }
+    sessionStorage.setItem("playersRole", JSON.stringify(playersRole));
+    //给下一个页面定义初始天数
+    sessionStorage.setItem("day", "1");
+    //给下一个页面定义一个数组来装每天的两个事件说明
+    var words=[];
+    sessionStorage.setItem("words",JSON.stringify(words));
 });

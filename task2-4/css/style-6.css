@@ -73,5 +73,12 @@ header {
 .main {
   margin-top: 134px;
   padding-top: 0; }
+  .main .grid {
+    position: relative; }
+    .main .grid img {
+      position: absolute;
+      bottom: -2vw;
+      width: 4.16vw;
+      height: 4.16vw; }
 
 /*# sourceMappingURL=style-6.css.map */
