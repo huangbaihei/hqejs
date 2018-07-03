@@ -52,7 +52,7 @@ header {
   margin-top: 40px;
   width: 100%;
   height: auto;
-  padding: 15px 34px 10px 34px;
+  padding: 15px 30px 10px 30px;
   background: #29bde0;
   text-align: center; }
   .blue-part div {
@@ -87,7 +87,7 @@ header {
     width: 100%;
     height: 95px;
     border-bottom: 1px solid #dfdfdf;
-    padding: 0 34px 15px 34px; }
+    padding: 0 30px 15px 30px; }
     .game-details .row ul {
       list-style: none; }
       .game-details .row ul li {

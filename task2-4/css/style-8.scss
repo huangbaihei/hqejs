@@ -30,7 +30,7 @@ header {
 .blue-part {
   margin-top: 40px;
   @include box(100%, auto);
-  padding: 15px 34px 10px 34px;
+  padding: 15px 30px 10px 30px;
   background: #29bde0;
   text-align: center;
   div {
@@ -67,7 +67,7 @@ header {
   .row {
     @include box(100%, 95px);
     @include b-b(#dfdfdf);
-    padding: 0 34px 15px 34px;
+    padding: 0 30px 15px 30px;
     ul {
       list-style: none;
       li {
