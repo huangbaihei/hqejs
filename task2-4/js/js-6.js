@@ -40,6 +40,10 @@ $(document).ready(function () {
         $(".btn").click(function () {
             if (index == -1) {
                 if (confirm("确定本轮不杀人吗")) {
+                    //取出装每天的两个事件说明的数组,将今天的杀手事件说明装进去
+                    var words = JSON.parse(sessionStorage.getItem("words"));
+                    words.push("昨晚没有人被杀死");
+                    sessionStorage.setItem("words", JSON.stringify(words));
                     location.href = "task2-5.html";
                 }
             }
