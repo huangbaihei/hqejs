@@ -85,6 +85,10 @@ $(document).ready(function () {
                         location.href = "task2-8.html"
                     }
                     else {
+                        //取出装每天的两个事件说明的数组,将今天的杀手事件说明装进去
+                        var words = JSON.parse(sessionStorage.getItem("words"));
+                        words.push((parseInt(index) + 1) + "号被杀手杀死，真实身份是" + playersRole[index].role);
+                        sessionStorage.setItem("words", JSON.stringify(words));
                         location.href = "task2-5.html";
                     }
                 }
@@ -121,7 +125,7 @@ $(document).ready(function () {
                     sessionStorage.setItem("day", day);
                     //取出装每天的两个事件说明的数组,将今天的投票事件说明装进去
                     var words = JSON.parse(sessionStorage.getItem("words"));
-                    words.push((parseInt(index) + 1) + "号被杀手杀死，真实身份是" + playersRole[index].role);
+                    words.push((parseInt(index) + 1) + "号被投票投死，真实身份是" + playersRole[index].role);
                     sessionStorage.setItem("words", JSON.stringify(words));
                     //声明两个空数组来存放活着的杀手和平民
                     var killers = [], civilians = [];

@@ -120,10 +120,6 @@ $(document).ready(function () {
                 $(".killer-kill-message").text((parseInt(index) + 1) + "号被杀手杀死，真实身份是" + playersRole[index].role);
             }
             $(".killer-kill-message").show();
-            //取出装每天的两个事件说明的数组,将今天的杀手事件说明装进去
-            var words = JSON.parse(sessionStorage.getItem("words"));
-            words.push($(".killer-kill-message").text());
-            sessionStorage.setItem("words", JSON.stringify(words));
             break;
         case "toPlayerStep":
             fsm.onkillerStep();//第一步高亮
