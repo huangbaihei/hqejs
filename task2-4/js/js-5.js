@@ -17,105 +17,100 @@ $(document).ready(function () {
         location.href = "task2-7.html";
     });
     //取出本地存储
-    var players = JSON.parse(sessionStorage.getItem("players"));
     var playersRole = JSON.parse(sessionStorage.getItem("playersRole"));
     var day = sessionStorage.getItem("day");
     $(".day:last").text("第" + day + "天");//修改活动台本头部天数
-    //开始编写状态机(和编写多状态数组差不多)
-    var fsm = {//分为状态和步骤两部分编写,步骤中嵌套状态判断，点击事件触发步骤
-        step: sessionStorage.getItem("step"),//每次执行先获取状态
-        killerStep: function () {
-            switch (fsm.step) {
-                case "killerStep":
-                    location.href = "task2-6.html";//跳转到杀人页面去杀人
-                    break;
-                case "ghostStep":
-                    alert("请勿重复操作");//在杀人页面已经将步骤保存到ghostStep
-                    break;
-                case "playerStep":
-                case "voteStep":
-                    alert("请按步骤进行");
-                    break;
-            }
-        },
-        ghostStep: function () {
-            switch (fsm.step) {
-                case "killerStep":
-                    alert("请按步骤进行");
-                    break;
-                case "ghostStep":
-                    alert("请死者亮明身份并发表遗言");
-                    fsm.step = "playerStep";
-                    sessionStorage.setItem("step", "playerStep");
-                    //由于页面不会自动刷新所以设置第二步点击高亮
+    //开始编写有限状态机，fsm.state不用声明，是状态机插件自带的，本来就有。
+    var fsm = new StateMachine({
+            init: sessionStorage.getItem("state"),//从存储中获取状态
+            transitions: [//这个其实是定义了四个函数，如果其中一个函数被触发，就会使fsm.state相应地从预设的from跳到to
+                {name: "killerStep", from: "toKillerStep", to: "toGhostStep"},
+                {name: "ghostStep", from: "toGhostStep", to: "toPlayerStep"},
+                {name: "playerStep", from: "toPlayerStep", to: "toVoteStep"},
+                {name: "voteStep", from: "toVoteStep", to: "toKillerStep"},
+            ],
+            methods: {//这个其实也是预设了函数，事件自己定义，要用的话直接调用就好，比如fsm.onkillerStep();
+                onkillerStep: function () {
+                    //设置第一步高亮
+                    $(".killer-kill").css("background", "#92b7a5");
+                    $("head").append("<style>.killer-kill:before{border-right-color: #92b7a5 !important}</style>");
+                },
+                onghostStep: function () {
+                    //第二步高亮
                     $(".ghost-speak").css("background", "#92b7a5");
                     $("head").append("<style>.ghost-speak:before{border-right-color: #92b7a5 !important}</style>");
-                    break;
-                case "playerStep":
-                    alert("请勿重复操作");
-                    break;
-                case "voteStep":
-                    alert("请按步骤进行");
-                    break;
-            }
-        },
-        playerStep: function () {
-            switch (fsm.step) {
-                case "killerStep":
-                    alert("请按步骤进行");
-                    break;
-                case "ghostStep":
-                    alert("请按步骤进行");
-                    break;
-                case "playerStep":
-                    alert("请玩家依次发言讨论");
-                    fsm.step = "voteStep";
-                    sessionStorage.setItem("step", "voteStep");
-                    //由于页面不会自动刷新所以第三步设置点击高亮
+                },
+                onplayerStep: function () {
+                    //第三步高亮
                     $(".player-speak").css("background", "#92b7a5");
                     $("head").append("<style>.player-speak:before{border-right-color: #92b7a5 !important}</style>");
-                    break;
-                case "voteStep":
-                    alert("请勿重复操作");
-                    break;
+                },
+                onvoteStep: function () {
+                    //第四步高亮
+                    $(".vote-kill").css("background", "#92b7a5");
+                    $("head").append("<style>.vote-kill:before{border-right-color: #92b7a5 !important}</style>");
+                }
             }
-        },
-        voteStep: function () {
-            switch (fsm.step) {
-                case "killerStep":
-                    alert("请按步骤进行");
-                    break;
-                case "ghostStep":
-                    alert("请按步骤进行");
-                    break;
-                case "playerStep":
-                    alert("请按步骤进行");
-                    break;
-                case "voteStep":
-                    location.href = "task2-6.html";//跳转到杀人页面去杀人
-                    break;
-            }
-        }
-    };
-    //开始为操作台本各个步骤添加点击事件
+        })
+    ;
+    //点击步骤根据当前状态决定是否触发状态机，其实状态机就是完成fsm.state自动顺序循环跳转
     $("#killer-step").click(function () {
-        fsm.killerStep();
+        if (sessionStorage.getItem("state") == "toKillerStep") {
+            fsm.killerStep();//触发了状态机，使状态fsm.state变到预设的下一个状态
+            sessionStorage.setItem("state", fsm.state);//将状态存到本地
+            fsm.onkillerStep();//第一步高亮
+            location.href = "task2-6.html";//跳转到杀人页面去杀人
+        }
+        else if (sessionStorage.getItem("state") == "toGhostStep") {
+            alert("请勿重复操作")
+        }
+        else {
+            alert("请按步骤进行")
+        }
     });
     $("#ghost-step").click(function () {
-        fsm.ghostStep();
+        if (sessionStorage.getItem("state") == "toGhostStep") {
+            fsm.ghostStep();//触发了状态机，使状态fsm.state变到预设的下一个状态
+            sessionStorage.setItem("state", fsm.state);//将状态存到本地
+            fsm.onghostStep();//第二步高亮
+            alert("请死者亮明身份并发表遗言")
+        }
+        else if (sessionStorage.getItem("state") == "toPlayerStep") {
+            alert("请勿重复操作")
+        }
+        else {
+            alert("请按步骤进行")
+        }
     });
     $("#player-step").click(function () {
-        fsm.playerStep()
+        if (sessionStorage.getItem("state") == "toPlayerStep") {
+            fsm.playerStep();//触发了状态机，使状态fsm.state变到预设的下一个状态
+            sessionStorage.setItem("state", fsm.state);//将状态存到本地
+            fsm.onplayerStep();//第三步高亮
+            alert("请玩家依次发言讨论")
+        }
+        else if (sessionStorage.getItem("state") == "toVoteStep") {
+            alert("请勿重复操作")
+        }
+        else {
+            alert("请按步骤进行")
+        }
     });
     $("#vote-step").click(function () {
-        fsm.voteStep()
+        if (sessionStorage.getItem("state") == "toVoteStep") {
+            fsm.voteStep();//触发了状态机，使状态fsm.state变到预设的下一个状态
+            sessionStorage.setItem("state", fsm.state);//将状态存到本地
+            fsm.onvoteStep();//第四步高亮
+            location.href = "task2-6.html";//跳转到杀人页面去杀人
+        }
+        else {
+            alert("请按步骤进行")
+        }
     });
-    //给做过的步骤设置高亮(根据步骤判断,只能解决刷新以后还能保留高亮的问题，但是页面不会自动刷新，所以还需要在相应步骤添加高亮)
-    switch (sessionStorage.getItem("step")) {
-        case "ghostStep":
-            //第一步高亮
-            $(".killer-kill").css("background", "#92b7a5");
-            $("head").append("<style>.killer-kill:before{border-right-color: #92b7a5 !important}</style>");
+    //每次刷新或者进入页面根据所处状态给做过的步骤设置高亮，并且做一些事件
+    switch (sessionStorage.getItem("state")) {
+        case "toGhostStep":
+            fsm.onkillerStep();//第一步高亮
             //将第一步下面的文字说明显现出来
             var index = sessionStorage.getItem("index");
             if (parseInt(index) == -1) {
@@ -130,29 +125,18 @@ $(document).ready(function () {
             words.push($(".killer-kill-message").text());
             sessionStorage.setItem("words", JSON.stringify(words));
             break;
-        case "playerStep":
-            //第一步高亮
-            $(".killer-kill").css("background", "#92b7a5");
-            $("head").append("<style>.killer-kill:before{border-right-color: #92b7a5 !important}</style>");
-            //第二步高亮
-            $(".ghost-speak").css("background", "#92b7a5");
-            $("head").append("<style>.ghost-speak:before{border-right-color: #92b7a5 !important}</style>");
+        case "toPlayerStep":
+            fsm.onkillerStep();//第一步高亮
+            fsm.onghostStep();//第二步高亮
             //第一步下面的文字还需要显示
             $(".killer-kill-message").show();
             break;
-        case "voteStep":
-            //第一步高亮
-            $(".killer-kill").css("background", "#92b7a5");
-            $("head").append("<style>.killer-kill:before{border-right-color: #92b7a5 !important}</style>");
-            //第二步高亮
-            $(".ghost-speak").css("background", "#92b7a5");
-            $("head").append("<style>.ghost-speak:before{border-right-color: #92b7a5 !important}</style>");
-            //第三步高亮
-            $(".player-speak").css("background", "#92b7a5");
-            $("head").append("<style>.player-speak:before{border-right-color: #92b7a5 !important}</style>");
+        case "toVoteStep":
+            fsm.onkillerStep();//第一步高亮
+            fsm.onghostStep();//第二步高亮
+            fsm.onplayerStep();//第三步高亮
             //第一步下面的文字还需要显示
             $(".killer-kill-message").show();
-
             break;
     }
     //当进行的天数大于1的时候，在活动台本前插入静止的法官台本
@@ -180,10 +164,10 @@ $(document).ready(function () {
             //将这一天的信息隐藏
             $(".wrap").eq(i).hide();
             //取出装每天的两个事件说明的数组,分别分配给各个静止法官台本
-            var words=JSON.parse(sessionStorage.getItem("words"));
-            $(".killer-kill-message").eq(i).text(words[2*i]);
+            var words = JSON.parse(sessionStorage.getItem("words"));
+            $(".killer-kill-message").eq(i).text(words[2 * i]);
             $(".killer-kill-message").eq(i).show();
-            $(".vote-kill-message").eq(i).text(words[2*i+1]);
+            $(".vote-kill-message").eq(i).text(words[2 * i + 1]);
             $(".vote-kill-message").eq(i).show();
             //将静止台本的每个步骤都设置高亮
             //第一步高亮
@@ -196,7 +180,7 @@ $(document).ready(function () {
             $(".player-speak").eq(i).css("background", "#92b7a5");
             $("head").append("<style>.player-speak-dead:before{border-right-color: #92b7a5 !important}</style>");
             //第四步高亮
-            $(".vote-kill").eq(i).css("background","#92b7a5");
+            $(".vote-kill").eq(i).css("background", "#92b7a5");
             $("head").append("<style>.vote-kill-dead:before{border-right-color: #92b7a5 !important}</style>");
         }
     }

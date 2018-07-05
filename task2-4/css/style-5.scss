@@ -44,6 +44,7 @@ header {
     border: 1px solid #c9c9c9;
     background: #fff;
     .day {
+      cursor: pointer;
       border-bottom: 1px solid #c9c9c9;
       position: relative;
       @include box(100%, 50px);

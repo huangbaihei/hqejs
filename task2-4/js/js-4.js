@@ -25,8 +25,8 @@ $(document).ready(function () {
     $(".btn").click(function () {
         location.href="task2-5.html";
     });
-    //给下一个页面的状态机设置step初始值到本地存储，初始步骤为杀手杀人killerStep
-    sessionStorage.setItem("step","killerStep");
+    //给下一个页面的状态机设置状态state初始值到本地存储，初始状态为去杀手杀人步骤toKillerStep
+    sessionStorage.setItem("state","toKillerStep");
     //开始定义变量并存储到本地存储
     var playersRole = [];//定义准备加三个状态的所有角色的数组
     for (var i = 0; i < players.length; i++) {

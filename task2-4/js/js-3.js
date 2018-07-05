@@ -38,7 +38,7 @@ $(document).ready(function () {
                 break;
             case 2://处于准备法官查看状态（点击去到法官查看页面）
                 if (confirm("请把手机交给法官")) {
-                    location.href="task2-4.html";
+                    location.href = "task2-4.html";
                 }
         }
     });
