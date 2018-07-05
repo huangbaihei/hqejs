@@ -23,6 +23,8 @@ button {
   border: 0;
   outline: 0;
   background: #fff;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
 }
 
 input {
