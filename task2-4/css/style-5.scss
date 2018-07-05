@@ -101,14 +101,12 @@ header {
         }
       }
       .night {
-        margin-bottom: 37px;
         position: relative;
         &:before {
           content: "";
           @include box(33px, 33px);
           @include border(#cccccc);
           border-radius: 50%;
-
           background: url("../images/yueliang.png") no-repeat 50% 50%;
           background-size: 16px 21px;
           background-color: #fff;

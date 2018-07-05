@@ -120,7 +120,6 @@ header {
           .main .item .wrap ul .kill-message:before {
             border: 0; }
       .main .item .wrap .night {
-        margin-bottom: 37px;
         position: relative; }
         .main .item .wrap .night:before {
           content: "";
