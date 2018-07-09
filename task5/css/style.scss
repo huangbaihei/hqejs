@@ -1,0 +1,54 @@
+@charset "UTF-8";
+@import "global";
+
+body {
+  height: 100vh;
+  background: url("../images/beijing.png") no-repeat;
+  background-size: 100% 100%;
+  @include middle-center;
+}
+
+.box {
+  @include box(335px, 250px);
+  background: rgba(185, 190, 199, 1);
+  h1 {
+    @include middle-center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    @include text(1.6rem, #03a9f4);
+  }
+  label {
+    display: block;
+    @include box(270px, 43px);
+    margin: 0 auto;
+    margin-bottom: 12px;
+    @include middle;
+    background: #fefefe;
+    span {
+      @include middle-center;
+      @include box(30px, 43px);
+    }
+    input {
+      @include box(225px, 20px);
+      border-left: 1px solid #e8e8e8;
+      padding: 3px 10px;
+      @include text(1.2rem, #383539);
+      &::placeholder {
+        @include text(1.2rem, #a9a8a9);
+      }
+    }
+  }
+  .prompt {
+    @include text(1.2rem, #fe0000);
+    text-align: center;
+    height: 16px;
+  }
+  button {
+    @include box(270px, 37px);
+    background: #03a9f4;
+    border-radius: 3px;
+    @include middle-center;
+    @include text(1.2rem, #2a4956);
+    margin: 3px auto;
+  }
+}

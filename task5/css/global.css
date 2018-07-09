@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  box-sizing: border-box; }
+
+html,
+body {
+  font-size: 62.5%; }
+
+a,
+a:hover {
+  text-decoration: none; }
+
+button {
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  background: #fff;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none; }
+
+input {
+  outline: 0;
+  border: 0; }
+
+/*# sourceMappingURL=global.css.map */
