@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+  font-weight: 400; }
+
+html,
+body {
+  font-size: 62.5%; }
+
+a,
+a:hover,
+a:visited,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: #337ab7; }
+
+button {
+  cursor: pointer;
+  border: 0;
+  outline: 0 !important;
+  background: #fff;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-appearance: none !important; }
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.mg-bottom-15 {
+  margin-bottom: 15px; }
+
+.text-center {
+  text-align: center !important; }
+
+.text-right {
+  text-align: right !important; }
+
+.table-border {
+  border: 1px solid #eee; }
+
+th, td {
+  text-align: center;
+  vertical-align: middle !important; }
+
+th {
+  font-weight: 700; }
+
+.padding-0 {
+  padding: 0; }
+
+.pd-left-50 {
+  padding-left: 50px; }
+
+.articleList {
+  font-size: 1.4rem; }
+
+.separate-page {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap; }
+  .separate-page > li {
+    height: 79px;
+    display: flex;
+    align-items: center;
+    margin-left: 20px; }
+    .separate-page > li:nth-of-type(1) input, .separate-page > li:nth-of-type(3) input {
+      height: 32px;
+      width: 50px;
+      text-align: center;
+      margin: 0 2px; }
+
+.list-thumbnail {
+  width: 40px;
+  height: 40px; }
+
+.articleDetails {
+  font-size: 1.4rem; }
+  .articleDetails .progress {
+    margin-bottom: 0 !important; }
+
+.edui-editor {
+  width: auto !important; }
+  .edui-editor .edui-editor-iframeholder {
+    width: auto !important; }
+
+/*# sourceMappingURL=articleList.css.map */

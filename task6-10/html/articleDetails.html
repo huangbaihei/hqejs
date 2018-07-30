@@ -1,0 +1,103 @@
+<div class="articleDetails" ng-controller="detailsCtrl">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <strong>{{detailsTitle}}</strong>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" name="detailsForm">
+                <div class="form-group">
+                    <label class="control-label col-md-2">标题名称</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" ng-model="title" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">类型</label>
+                    <div class="col-md-2">
+                        <select class="form-control" ng-model="type">
+                            <option ng-repeat="x in selectType" value="{{x.num}}">{{x.type}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-control" ng-model="industry" ng-show="type==='3'">
+                            <option ng-repeat="x in selectIndustry" value="{{x.num}}">{{x.industry}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">说明</label>
+                    <div class="col-md-8">
+                        <div class="ueditor" ng-model="content"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">跳转链接</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" ng-model="url" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">配图</label>
+                    <div class="col-md-8 padding-0">
+                        <div class="col-md-12">
+                            <label for="uploadFile" class="btn btn-primary">选择文件</label>
+                            <input type="file"
+                                   id="uploadFile"
+                                   name="file"
+                                   accept="image/png,image/jpeg,image/gif"
+                                   onchange="angular.element(this).scope().readFile(this)"
+                                   ng-show="false">
+                        </div>
+                        <div class="col-md-12">
+                            <img src="{{imgSrc}}" alt="图片预览" ng-show="imgShow">
+                        </div>
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <th>图片名</th>
+                                    <th>文件大小</th>
+                                    <th>进度</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                    </thead>
+                                    <tbody ng-show="showTbody">
+                                    <td>{{fileName}}</td>
+                                    <td>{{fileSize | KB}}</td>
+                                    <td>
+                                        <uib-progressbar value="progress">{{progress}}%</uib-progressbar>
+                                    </td>
+                                    <td><span class="{{statusIcon}}"></span></td>
+                                    <td>
+                                        <button class="btn btn-success btn-xs" type="button" ng-click="fileUpload()">
+                                            <span class="glyphicon glyphicon-upload"></span>&nbsp;上传
+                                        </button>
+                                        <button class="btn btn-danger btn-xs" type="button" ng-click="fileDelete()">
+                                            <span class="glyphicon glyphicon-trash"></span>&nbsp;删除
+                                        </button>
+                                    </td>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <button class="btn btn-success"
+                                ng-repeat="x in statusBtn"
+                                ng-click="submitChange()"
+                                style="margin-right: 5px"
+                                ng-disabled="detailsForm.$invalid||imgSrc===undefined"
+                                type="submit">
+                            {{x.btnContent}}
+                        </button>
+                        <button class="btn btn-default pull-right" ui-sref="home.articleList">取消</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+@charset "UTF-8";
+@import "global";
+
+.login-body{
+  width: 100%;
+  height: 100vh;
+  @include middle;
+  position: relative;
+  overflow: hidden;
+  .flower-background{
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+  }
+  .form-group{
+    position: relative;
+    .icon{
+      position: absolute;
+      left: 14px;
+      top: 10.5px;
+    }
+  }
+  .prompt {
+    @include text(1.2rem, #fe0000);
+    text-align: center;
+    height: 16px;
+    margin-bottom: 2px;
+  }
+}
+

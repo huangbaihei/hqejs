@@ -1,0 +1,137 @@
+@charset "UTF-8";
+@import "global";
+
+.home {
+  //background: rgb(35, 42, 58);
+  background: #fff;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  .navbar-1{
+    border: 0;
+    margin: 0;
+    .navbar-header-1 {
+      border-bottom: 1px solid rgb(74, 95, 108);
+      height: 50px;
+      background: rgb(35, 42, 58);
+      @include text(1.8rem, #fff);
+      font-weight: 700;
+      @include middle;
+      @include sm-lg {
+        @include middle-center;
+      }
+      .navbar-toggle-1 {
+        &:hover {
+          background: rgb(35, 42, 58);
+        }
+        &:focus{
+          background: rgb(35, 42, 58);
+        }
+        @include xs {
+          position: absolute;
+          right: 0;
+          top: 6.5px;
+          margin: 0 15px;
+          .icon-bar {
+            background: #fff;
+            height: 3px;
+
+          }
+        }
+      }
+    }
+    .nav-right {
+      height: 50px;
+      background: #fff;
+      @include middle;
+      justify-content: flex-end;
+      a {
+        font-size: 1.4rem;
+        padding: 15px;
+        &:hover{
+          background: #eee;
+        }
+        margin: 0 5px;
+      }
+      span {
+        font-size: 1.4rem;
+        color: #e8e8e8;
+      }
+      i {
+        font-size: 1.4rem;
+        padding: 18px 15px;
+        cursor: pointer;
+        &:hover{
+          background: #eee;
+        }
+        margin: 0 5px;
+      }
+    }
+    .collapse-1 {
+      padding-left: 0;
+      padding-right: 0;
+      background: rgb(35, 42, 58);
+      color: #fff;
+      @include sm-lg {
+        display: block;
+        padding-top: 28px;
+        padding-bottom: 3000px;
+        margin-bottom: -3000px;
+      }
+      .list-father {
+        font-size: 1.6rem;
+        .list-head {
+          padding-left: 15px;
+          padding-right: 15px;
+          height: 40px;
+          @include middle;
+          justify-content: space-between;
+          cursor: pointer;
+          position: relative;
+          &:hover {
+            background: rgba(255, 255, 255, 0.4);
+          }
+        }
+        .list-head-highlight {
+          background: rgba(255, 255, 255, 0.4);
+          &:before{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 40px;
+            width: 3px;
+            background: #fff;
+          }
+        }
+        .head-highlight-reset{
+          background: rgb(35, 42, 58);
+        }
+        .list-child {
+          font-size: 1.4rem;
+          li {
+
+            padding-right: 15px;
+            height: 40px;
+            padding-left: 65px;
+            cursor: pointer;
+            &:hover {
+              background: rgba(255, 255, 255, 0.4);
+            }
+              @include middle;
+          }
+          .list-li-highlight{
+            background: rgba(255, 255, 255, 0.4);
+          }
+        }
+
+      }
+    }
+    .home-content {
+      background: #f5f5f5;
+      padding: 30px 30px 3000px 30px;
+      margin-bottom: -3000px;
+    }
+  }
+}
+
