@@ -1,0 +1,3 @@
+ location /carrots-admin-ajax/{
+        proxy_pass http://dev.admin.carrots.ptteng.com/; 
+        }
