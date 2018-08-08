@@ -1,0 +1,9 @@
+<view class='chooseDetails'>
+<view class='title'>试试什么职业最适合你</view>
+<view class='list' wx:for='{{chooseData}}' wx:key='{{title}}'>
+<picker range='{{item.options}}' range-key='name' bindchange='setChange' data-id='{{index}}'>
+{{item.title}}: {{item.options[item.num].name}}
+</picker>
+</view>
+<button bindtap='toChooseJobs'>选好了，点击查看</button>
+</view>

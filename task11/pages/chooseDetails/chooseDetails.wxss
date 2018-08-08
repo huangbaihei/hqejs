@@ -1,0 +1,14 @@
+.title{
+  padding: 20px;
+  text-align: center;
+}
+.list{
+  border-top: 1px solid #edece8;
+  padding: 10px;
+}
+button{
+  background-color: #02AE00;
+  color: #fff;
+  width: 300px;
+  margin-top: 50px;
+}

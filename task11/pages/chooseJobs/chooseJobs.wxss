@@ -1,0 +1,28 @@
+.title{
+  text-align: center;
+  padding: 20px;
+}
+
+.navbar text{
+  display: inline-block;
+  width: 33.33%;
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #edece8;
+}
+.navbar .active{
+  color: green;
+  border-bottom: 1px solid green;
+}
+.list{
+  border-bottom: 1px solid #edece8;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.list-basis .left-title{
+  white-space: nowrap;
+}
+.left-title{
+  margin-right: 5px;
+}

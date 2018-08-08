@@ -1,0 +1,12 @@
+{
+  "pages":[
+    "pages/chooseDetails/chooseDetails",
+    "pages/chooseJobs/chooseJobs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "TASK11小程序",
+    "navigationBarTextStyle":"black"
+  }
+}

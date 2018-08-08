@@ -1,0 +1,64 @@
+<view class="chooseJobs">
+ <view class='title'>最适合你的职业推荐</view>
+<!-- 导航条 -->
+ <view class='navbar'>
+   <text wx:for='{{jobDetails}}' wx:key='name' data-id='{{index}}' bindtap='changeId' class="{{currentTab===index?'active':''}}">{{item.name}}</text>
+</view>
+<!-- 第一个 -->
+<view hidden='{{currentTab!=0}}'>
+<view class='list'>{{navbarTitle[0]}}: {{jobDetails[0].threshold}}星</view>
+<view class='list'>{{navbarTitle[1]}}: {{jobDetails[0].difficult}}星</view>
+<view class='list'>{{navbarTitle[2]}}: {{jobDetails[0].cycle}}</view>
+<view class='list'>{{navbarTitle[3]}}: {{jobDetails[0].company}}</view>
+<view class='list list-basis'>
+ <view class='left-title'>{{navbarTitle[4]}}:</view>
+ <view class='right-details'>
+   {{jobDetails[0].basis}}
+ </view>
+ </view>
+<view class='list list-last'>
+ <view class='left-title'>{{navbarTitle[5]}}:</view>
+ <view class='right-details'>
+   <view wx:for='{{jobDetails[0].salary}}' wx:key='time'>{{item.time}} 约 {{item.salary}}K</view>
+ </view>
+</view>
+</view>
+<!-- 第二个 -->
+<view hidden='{{currentTab!=1}}'>
+<view class='list'>{{navbarTitle[0]}}: {{jobDetails[1].threshold}}星</view>
+<view class='list'>{{navbarTitle[1]}}: {{jobDetails[1].difficult}}星</view>
+<view class='list'>{{navbarTitle[2]}}: {{jobDetails[1].cycle}}</view>
+<view class='list'>{{navbarTitle[3]}}: {{jobDetails[1].company}}</view>
+<view class='list list-basis'>
+ <view class='left-title'>{{navbarTitle[4]}}:</view>
+ <view class='right-details'>
+   {{jobDetails[1].basis}}
+ </view>
+ </view>
+<view class='list list-last'>
+ <view class='left-title'>{{navbarTitle[5]}}:</view>
+ <view class='right-details'>
+   <view wx:for='{{jobDetails[1].salary}}' wx:key='time'>{{item.time}} 约 {{item.salary}}K</view>
+ </view>
+</view>
+</view>
+<!-- 第三个 -->
+<view hidden='{{currentTab!=2}}'>
+<view class='list'>{{navbarTitle[0]}}: {{jobDetails[2].threshold}}星</view>
+<view class='list'>{{navbarTitle[1]}}: {{jobDetails[2].difficult}}星</view>
+<view class='list'>{{navbarTitle[2]}}: {{jobDetails[2].cycle}}</view>
+<view class='list'>{{navbarTitle[3]}}: {{jobDetails[2].company}}</view>
+<view class='list list-basis'>
+ <view class='left-title'>{{navbarTitle[4]}}:</view>
+ <view class='right-details'>
+   {{jobDetails[2].basis}}
+ </view>
+ </view>
+<view class='list list-last'>
+ <view class='left-title'>{{navbarTitle[5]}}:</view>
+ <view class='right-details'>
+   <view wx:for='{{jobDetails[2].salary}}' wx:key='time'>{{item.time}} 约 {{item.salary}}K</view>
+ </view>
+</view>
+</view>
+</view>
